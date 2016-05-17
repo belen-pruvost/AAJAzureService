@@ -28,6 +28,13 @@ namespace AAJAzureService.Models
         }
 
         public DbSet<Visibility> Visibilities { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
+        public DbSet<AnnouncementCategory> AnnouncementCategories { get; set; }
+        public DbSet<ChatStatus> ChatStatuses { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -40,6 +47,17 @@ namespace AAJAzureService.Models
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+
+            modelBuilder.Entity<Message>()
+               .HasMany<User>(s => s.Receivers)
+               .WithMany(c => c.Messages)
+               .Map(cs =>
+               {
+                   cs.MapLeftKey("MessageId");
+                   cs.MapRightKey("UserId");
+                   cs.ToTable("Messages_Receivers");
+               });
+
         }
     }
 

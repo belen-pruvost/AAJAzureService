@@ -120,10 +120,6 @@
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ServiceBus">
-      <HintPath>..\packages\WindowsAzure.ServiceBus.2.3.4.0\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
       <Private>True</Private>
@@ -221,7 +217,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\UserTypeController.cs" />
+    <Compile Include="Controllers\AnnouncementCategoryController.cs" />
+    <Compile Include="Controllers\ChatStatusController.cs" />
     <Compile Include="Controllers\VisibilityController.cs" />
+    <Compile Include="DataObjects\Announcement.cs" />
+    <Compile Include="DataObjects\AnnouncementCategory.cs" />
+    <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\Message.cs" />
+    <Compile Include="DataObjects\UserType.cs" />
+    <Compile Include="DataObjects\ChatStatus.cs" />
     <Compile Include="DataObjects\Visibility.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
@@ -232,7 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -253,6 +263,9 @@
     <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service.pubxml" />
+    <None Include="Properties\PublishProfiles\mobile-aaj-test %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mobile-aaj-test %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mobile-aaj-test.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
