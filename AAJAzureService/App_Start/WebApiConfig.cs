@@ -31,15 +31,16 @@ namespace AAJAzureService
     {
         protected override void Seed(MobileServiceContext context)
         {
-            List<TodoItem> todoItems = new List<TodoItem>
+            List<Visibility> todoItems = new List<Visibility>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+                new Visibility { Id = Guid.NewGuid().ToString(), Name = "Internal", Description = "Only AAJ employees users can see" },
+                new Visibility { Id = Guid.NewGuid().ToString(), Name = "External", Description = "Only registered users can see" },
+                new Visibility { Id = Guid.NewGuid().ToString(), Name = "InternalAndExternal", Description = "Employees and external users can see" }
             };
 
-            foreach (TodoItem todoItem in todoItems)
+            foreach (Visibility todoItem in todoItems)
             {
-                context.Set<TodoItem>().Add(todoItem);
+                context.Set<Visibility>().Add(todoItem);
             }
 
             base.Seed(context);

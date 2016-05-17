@@ -27,7 +27,7 @@ namespace AAJAzureService.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Visibility> Visibilities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
