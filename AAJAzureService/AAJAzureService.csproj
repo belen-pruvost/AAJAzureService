@@ -276,12 +276,7 @@
     <Content Include="Performance\Microsoft.ServiceBus.MessagingPerformanceCounters.man" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\mobile-aaj-mobile-service.pubxml" />
-    <None Include="Properties\PublishProfiles\mobile-aaj-test %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\mobile-aaj-test %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\mobile-aaj-test.pubxml" />
+    <None Include="Properties\PublishProfiles\aaj-mobile-service.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
