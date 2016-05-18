@@ -19,7 +19,6 @@ namespace AAJAzureService.DataObjects
 
         public string UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }
-
-        public virtual ICollection<Message> Messages { get; set; }
+        
     }
 }

@@ -140,25 +140,25 @@ namespace AAJAzureService
                 context.Set<User>().Add(user);
             }
 
-            //Collection<User> receivers1 = new Collection<User>();
-            //receivers1.Add(users[1]);
-            //receivers1.Add(users[2]);
+            List<User> receivers1 = new List<User>();
+            receivers1.Add(users[1]);
+            receivers1.Add(users[2]);
 
-            //Collection<User> receivers2 = new Collection<User>();
-            //receivers2.Add(users[1]);
+            List<User> receivers2 = new List<User>();
+            receivers2.Add(users[1]);
 
-            //List<Message> messages = new List<Message>
-            //{
-            //    new Message { Text = "Hi, how are you?", Sender = users[0], Receivers = receivers1
-            //    },
-            //    new Message { Text = "Good morning Abraham!", Sender = users[2], Receivers = receivers2
-            //    }
-            //};
+            List<Message> messages = new List<Message>
+            {
+                new Message { Id = Guid.NewGuid().ToString(), Text = "Hi, how are you?", Sender = users[0], Receivers = receivers1
+                },
+                new Message { Id = Guid.NewGuid().ToString(), Text = "Good morning Abraham!", Sender = users[2], Receivers = receivers2
+                }
+            };
 
-            //foreach (Message message in messages)
-            //{
-            //    context.Set<Message>().Add(message);
-            //}
+            foreach (Message message in messages)
+            {
+                context.Set<Message>().Add(message);
+            }
 
             base.Seed(context);
         }

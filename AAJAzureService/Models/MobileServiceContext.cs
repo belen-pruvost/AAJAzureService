@@ -50,7 +50,7 @@ namespace AAJAzureService.Models
 
             modelBuilder.Entity<Message>()
                .HasMany<User>(s => s.Receivers)
-               .WithMany(c => c.Messages)
+               .WithMany()
                .Map(cs =>
                {
                    cs.MapLeftKey("MessageId");
