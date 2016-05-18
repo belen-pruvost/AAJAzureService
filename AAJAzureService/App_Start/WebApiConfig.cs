@@ -149,9 +149,11 @@ namespace AAJAzureService
 
             List<Message> messages = new List<Message>
             {
-                new Message { Id = Guid.NewGuid().ToString(), Text = "Hi, how are you?", Sender = users[0], Receivers = receivers1
+                new Message { Id = Guid.NewGuid().ToString(), Text = "Hi, how are you?", SenderId = users[0].Id,
+                    Sender = users[0], Receivers = receivers1
                 },
-                new Message { Id = Guid.NewGuid().ToString(), Text = "Good morning Abraham!", Sender = users[2], Receivers = receivers2
+                new Message { Id = Guid.NewGuid().ToString(), Text = "Good morning Abraham!", SenderId = users[2].Id,
+                    Sender = users[2], Receivers = receivers2
                 }
             };
 
