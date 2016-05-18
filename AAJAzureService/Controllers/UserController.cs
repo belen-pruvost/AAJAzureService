@@ -6,6 +6,7 @@ using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
 using AAJAzureService.DataObjects;
 using AAJAzureService.Models;
+using System.Net.Mail;
 using AAJAzureService.Filters;
 
 namespace AAJAzureService.Controllers
@@ -23,6 +24,28 @@ namespace AAJAzureService.Controllers
         [QueryableExpand("ChatStatus,UserType")]
         public IQueryable<User> GetAllUsers()
         {
+            //Send Email
+            // Create a mail message
+            var message = new MailMessage();
+
+            // Add recipient
+            message.To.Add(new MailAddress("martin.aybar@aajtech.com", "Martin Aybar"));
+            message.To.Add(new MailAddress("ezequiel.echeveste@aajtech.com", "Ezequiel Echeveste"));
+
+            // Set subject
+            message.Subject = "Welcome to AAJ Mobile Service";
+
+            // Set HTML body
+            message.Body = "Your email test works great...!!!!";
+            message.IsBodyHtml = true;
+
+            // Create the smtp client
+            var smtpClient = new SmtpClient();
+
+            // Send the message
+            smtpClient.Send(message);
+
+
             return Query();
         }
 
