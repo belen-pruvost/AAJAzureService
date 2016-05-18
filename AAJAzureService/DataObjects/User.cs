@@ -20,5 +20,8 @@ namespace AAJAzureService.DataObjects
         public string UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }
         
+        public bool IsConfirmedMail { get; set; }
+
+        public int CodeConfirmation { get; set; }
     }
 }
