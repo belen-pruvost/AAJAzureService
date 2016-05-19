@@ -247,6 +247,7 @@
     <Compile Include="DataObjects\UserType.cs" />
     <Compile Include="DataObjects\ChatStatus.cs" />
     <Compile Include="DataObjects\Visibility.cs" />
+    <Compile Include="Filters\QueryableExpandAttribute.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">

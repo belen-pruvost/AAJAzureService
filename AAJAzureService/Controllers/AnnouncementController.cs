@@ -6,6 +6,7 @@ using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
 using AAJAzureService.DataObjects;
 using AAJAzureService.Models;
+using AAJAzureService.Filters;
 
 namespace AAJAzureService.Controllers
 {
@@ -19,12 +20,14 @@ namespace AAJAzureService.Controllers
         }
 
         // GET tables/Announcement
+        [QueryableExpand("Visibility,Category")]
         public IQueryable<Announcement> GetAllAnnouncements()
         {
             return Query();
         }
 
         // GET tables/Announcement/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        [QueryableExpand("Visibility,Category")]
         public SingleResult<Announcement> GetAnnouncement(string id)
         {
             return Lookup(id);
