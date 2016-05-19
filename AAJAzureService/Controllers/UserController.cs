@@ -41,6 +41,36 @@ namespace AAJAzureService.Controllers
             return Lookup(id);
         }
 
+        public IHttpActionResult GetCodeVerificationResult(string email,int code)
+        {
+            var user = Query().Where(u => u.Email == email).FirstOrDefault();
+                
+             if (user != null)
+            {
+                if (code == user.CodeConfirmation)
+                {
+                 
+                    user.IsConfirmedMail = false;
+                    user.CodeConfirmation = 0;
+
+                    Delta<User> patch = new Delta<User>();
+                    patch.Patch(user);
+                    UpdateAsync(user.Id, patch);
+                    return Ok(user);
+                }
+                else
+                {
+                    //code invalid
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        } 
+        
         // PATCH tables/User/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<User> PatchUser(string id, Delta<User> patch)
         {
@@ -51,6 +81,7 @@ namespace AAJAzureService.Controllers
         public async Task<IHttpActionResult> PostUser(User item)
         {
             var user = Query().Where(u => u.Email == item.Email).FirstOrDefault();
+
             if (user == null)
             {
                 /* this validation has to be added to send code confirmation to people don't belongs to the company
